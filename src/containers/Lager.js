@@ -9,10 +9,10 @@ const recipe = {
 }
 
 const Larger = (props) => {
-  console.log('pora', props)
   return (
     <div>
-      Percentage: {props.boiler}
+      <h1>Lager</h1>
+      {props.children}
     </div>
   )
 }

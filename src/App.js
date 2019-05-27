@@ -5,15 +5,15 @@ import Ale from './containers/Ale'
 
 class App extends Component {
   state = {
-    lager: 0,
-    wise: 0,
-    ale: 0
+    lager: false,
+    wise: false,
+    ale: false
   }
 
   componentDidMount() {
-    setTimeout(() => this.setState({ wise: true }), 1000);
-    setTimeout(() => this.setState({ lager: true }), 2000);
-    setTimeout(() => this.setState({ ale: true }), 3000);
+    setTimeout(() => this.setState({ wise: true }), 2000);
+    setTimeout(() => this.setState({ lager: true }), 4000);
+    setTimeout(() => this.setState({ ale: true }), 6000);
   }
 
   render() {
@@ -24,8 +24,8 @@ class App extends Component {
     } = this.state;
 
     return (
-      <div className="App">
-        <Lager completed={lager} />
+      <div className="App" style={{ display: "flex", flex: "1", justifyContent: "space-between" }}>
+        <Lager completed={lager} type="lager" />
         <Ale completed={ale} />
         <Wise completed={wise} />
       </div>

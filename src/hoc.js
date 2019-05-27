@@ -1,33 +1,38 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import Cup from './components/Cup'
+import Loading from './loading.gif'
 
-const LIMIT_BOILER = 10000
+const withDrink = (WrapperComponent) => {
 
-const DrinkHOC = (WrapperComponent, recipe) => {
+  const withDrink = (props) => {
 
-  const DrinkHOC = (props) => {
-
-    // const isCompleted = props.completed
-
-    const isCompleted = false
-
+    const isCompleted = props.completed
 
     return (
       <>
         {
           !isCompleted ? (
             <>
-              Fabricando cerveja
-              {<Cup />}
+              <div style={{ display: "flex", flex: "1" }}>
+                <img src={Loading} style={{ display: 'block', width: "328px", height: "278px", margin: '0 auto' }} />
+              </div>
             </>
           ) : (
-              <WrapperComponent {...props} />
+              <WrapperComponent {...props}>
+                {<Cup isCompleted={isCompleted} />}
+              </WrapperComponent>
             )
         }
       </>
     )
   }
-  return DrinkHOC
+
+  withDrink.defaultProps = {
+    completed: false
+  }
+
+  return withDrink
 }
 
-export default DrinkHOC
+
+export default withDrink

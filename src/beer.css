@@ -1,9 +1,22 @@
 html {
   height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.img-loading {
+  width: "64px";
+  height: "64px";
+  margin: 0 auto;
+  display: block;
 }
 
 .App {
   display: flex;
+}
+
+#root {
+  width: 100%;
 }
 
 body {
@@ -13,6 +26,7 @@ body {
   justify-content: center;
   margin: 0;
   overflow: hidden;
+  padding: 0 100px;
 }
 
 /* GLASS */
@@ -299,18 +313,6 @@ body {
   animation-name: instructions;
 }
 
-@media (pointer: fine) {
-  .instructions::before {
-    content: "Click ";
-  }
-}
-
-@media (pointer: coarse) {
-  .instructions::before {
-    content: "Tap ";
-  }
-}
-
 @keyframes instructions {
   0%, 15% {
     opacity: 0.5;
@@ -327,44 +329,23 @@ body {
 .glass .head,
 .glass .surface,
 .glass .pour,
-.glass .pour .stream,
-.instructions {
+.glass .pour .stream {
   animation-timing-function: cubic-bezier(.2,0,.4,1);
   animation-duration: 4s;
   animation-fill-mode: forwards;
   animation-play-state: paused;
 }
 
-
-/* ANIMATE FILL */
-@media (pointer: fine) {
-  .glass:active .beer,
-  .glass:active .head,
-  .glass:active .surface,
-  .glass:active .pour,
-  .glass:active .pour .stream,
-  .glass:active ~ .instructions {
-    animation-play-state: running;
-  }
-
-  .glass:active .pour {
-    width: 10%;
-    opacity: 1;
-  }
+.glass.active .beer,
+.glass.active .head,
+.glass.active .surface,
+.glass.active .pour,
+.glass.active .pour .stream,
+.glass.active ~ .instructions {
+  animation-play-state: running;
 }
 
-@media (pointer: coarse) {
-  .glass:hover .beer,
-  .glass:hover .head,
-  .glass:hover .surface,
-  .glass:hover .pour,
-  .glass:hover .pour .stream,
-  .glass:hover ~ .instructions {
-    animation-play-state: running;
-  }
-
-  .glass:hover .pour {
-    width: 10%;
-    opacity: 1;
-  }
+.glass.active .pour {
+  width: 10%;
+  opacity: 1;
 }

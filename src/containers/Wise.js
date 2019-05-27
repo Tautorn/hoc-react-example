@@ -10,10 +10,10 @@ const recipe = {
 }
 
 const Wise = (props) => {
-  console.log('pora', props)
   return (
     <div>
-      Percentage: {props.boiler}
+      <h1>Wise</h1>
+      {props.children}
     </div>
   )
 }
