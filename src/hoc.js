@@ -1,53 +1,33 @@
-import React, { Component } from 'react'
+import React, { useEffect, useState } from 'react'
+import Cup from './components/Cup'
 
-const DrinkHOC = (WrapperComponent, { type }) => {
+const LIMIT_BOILER = 10000
 
-  return class extends Component {
+const DrinkHOC = (WrapperComponent, recipe) => {
 
-    constructor(props) {
-      super(props)
-      this.state = {
-        percentage: 0
-      }
-    }
+  const DrinkHOC = (props) => {
 
-    componentDidMount() {
-      // const { percentage } = this.props
+    // const isCompleted = props.completed
 
-      global.setInterval(() => {
-        this.setState({
-          percentage: 20 + this.state.percentage
-        })
-      }, 2000)
-    }
+    const isCompleted = false
 
-    componentShouldUpdated() {
 
-    }
-
-    getLupolo(type) {
-      return {
-        Wise: '15',
-        Pilsen: '20',
-        Larger: '10',
-      }[type]
-    }
-
-    render() {
-      // const { type } = this.props
-
-      console.log('props', this.props)
-      console.log('type', type)
-
-      const lupolo = this.getLupolo(type)
-
-      return (
-        <>
-          <WrapperComponent {...this.props} lupolo={lupolo} percentage={this.state.percentage} />
-        </>
-      )
-    }
+    return (
+      <>
+        {
+          !isCompleted ? (
+            <>
+              Fabricando cerveja
+              {<Cup />}
+            </>
+          ) : (
+              <WrapperComponent {...props} />
+            )
+        }
+      </>
+    )
   }
+  return DrinkHOC
 }
 
 export default DrinkHOC
