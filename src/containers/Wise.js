@@ -1,6 +1,5 @@
-import React, { Component } from 'react'
+import React from 'react'
 import withDrink from '../hoc'
-import Cup from '../components/Cup'
 
 const recipe = {
   malte: '1kg',
