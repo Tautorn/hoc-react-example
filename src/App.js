@@ -13,7 +13,7 @@ class App extends Component {
   componentDidMount() {
     setTimeout(() => this.setState({ wise: true }), 2000);
     setTimeout(() => this.setState({ lager: true }), 4000);
-    setTimeout(() => this.setState({ ale: true }), 6000);
+    setTimeout(() => this.setState({ ale: true }), 1000);
   }
 
   render() {
