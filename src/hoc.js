@@ -4,7 +4,7 @@ import Loading from './loading.gif'
 
 const withDrink = (WrapperComponent, recipe) => {
 
-  const withDrink = (props) => {
+  const ComponentEnhanced = (props) => {
 
     const isCompleted = props.completed
 
@@ -32,11 +32,11 @@ const withDrink = (WrapperComponent, recipe) => {
     )
   }
 
-  withDrink.defaultProps = {
+  ComponentEnhanced.defaultProps = {
     completed: false
   }
 
-  return withDrink
+  return ComponentEnhanced
 }
 
 

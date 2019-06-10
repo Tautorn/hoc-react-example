@@ -3,9 +3,9 @@ import withDrink from '../hoc'
 
 const recipe = {
   malte: '1kg',
-  water: '16l',
-  hops: '10g',
-  maturation: '1000'
+  water: '14l',
+  hops: '12g',
+  maturation: '1500'
 }
 
 const Ale = (props) => {

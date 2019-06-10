@@ -2,10 +2,10 @@ import React from 'react'
 import withDrink from '../hoc'
 
 const recipe = {
-  malte: '1kg',
-  water: '16l',
+  malte: '1,2kg',
+  water: '18l',
   hops: '10g',
-  maturation: '1000'
+  maturation: '1100'
 }
 
 const Wise = (props) => {
